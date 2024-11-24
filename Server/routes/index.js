@@ -1,15 +1,15 @@
 var express = require('express');
 var router = express.Router();
-const passport=require('passport')
-let DB = require('../server/views/config/db')
-let userModel = require('../model/User')
-let User = userModel.User;
+//const passport=require('passport')
+//let DB = require('../server/views/config/db')
+//let userModel = require('../model/User')
+//let User = userModel.User;
 
 /* GET index page. */
 router.get('/', function(req, res, next) {
   res.render('index', { 
     title: 'Home',
-    displayName:req.user ? req.user.displayName:''
+    //displayName:req.user ? req.user.displayName:''
   });
 });
 
@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
 router.get('/home', function(req, res, next) {
   res.render('index', { 
     title: 'Home',
-    displayName:req.user ? req.user.displayName:''
+    //displayName:req.user ? req.user.displayName:''
   });
 });
 
@@ -25,7 +25,7 @@ router.get('/home', function(req, res, next) {
 router.get('/about', function(req, res, next) {
   res.render('index', { 
     title: 'About Me',
-    displayName:req.user ? req.user.displayName:''
+    //displayName:req.user ? req.user.displayName:''
   });
 });
 
@@ -33,7 +33,7 @@ router.get('/about', function(req, res, next) {
 router.get('/projects', function(req, res, next) {
   res.render('index', { 
     title: 'Projects',
-    displayName:req.user ? req.user.displayName:''
+    //displayName:req.user ? req.user.displayName:''
   });
 });
 
@@ -41,10 +41,11 @@ router.get('/projects', function(req, res, next) {
 router.get('/contact', function(req, res, next) {
   res.render('index', { 
     title: 'Contact Me',
-    displayName:req.user ? req.user.displayName:''
+    //displayName:req.user ? req.user.displayName:''
   });
 });
 
+/*
 //get and post router of login.ejs
 router.get('/login', function(req,res,next){
   if(!req.user)
@@ -75,7 +76,7 @@ router.post('/login', function(req,res,next){
       {
         return next(err)
       }
-      return res.redirect('assignmentslist');
+      return res.redirect('assignmentstracker');
     })
   })(req,res,next)
 })
@@ -120,7 +121,7 @@ router.post('/register', function(req,res,next){
     }
     else{
       return passport.authenticate('local')(req,res,()=>{
-        res.redirect('/assignmentslist')
+        res.redirect('/assignmentstracker')
       })
     }
   })
@@ -135,3 +136,4 @@ router.get('/logout', function(req,res,next){
   res.redirect('/')
 })
 module.exports = router;
+*/

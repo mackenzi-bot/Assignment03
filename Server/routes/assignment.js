@@ -1,7 +1,10 @@
 var express = require('express');
 var router = express.Router();
+let mongoose = require('mongoose');
 let Assignment = require('../model/assignment');
-const assignment = require('../server/views/model/assignment');
+const assignment = require('../model/assignment');
+let assignmentController = require('.../controllers/assignment.js')
+//const assignment = require('../Assignment03/server/views/model/assignment');
 function requireAuth(req,res,next)
 {
     if(!req.isAuthenticated())
