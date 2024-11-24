@@ -1,9 +1,9 @@
 // MVC --> Model, View, Controller (Routers)
 let mongoose = require('mongoose')
 // create a model class
-let assignmnetModel = mongoose.Schema({
+let assignmentModel = mongoose.Schema({
     Name:String,
-    DaysDue:Number,
+    Due:String,
     Description:String,
     Class:String
 },

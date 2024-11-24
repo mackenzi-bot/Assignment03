@@ -15,7 +15,7 @@ function requireAuth(req,res,next)
 router.get('/', async(req, res, next) => {
     try{
         const AssignmentTracker= await assignment.find()
-        res.render('Assignmnet/tracker', {
+        res.render('Assignment/tracker', {
             title:'Assignments',
             displayName:req.user ? req.user.displayName:'',
             AssignmentTracker:AssignmentTracker
@@ -44,13 +44,13 @@ router.get('/add', async(req,res,next)=>{
 /*Create operation --> Post route for processing the Add page */
 router.post('/add', async(req,res,next)=>{
     try{
-        let newBook = Book({
+        let newAssignment = Assignment({
             "Name":req.body.Name,
-            "DaysDue":req.body.DaysDue,
+            "Due":req.body.Due,
             "Description":req.body.Description,
             "Class":req.body.Class
         });
-        Book.create(newAssignmnet).then(()=>{
+        Assignment.create(newAssignment).then(()=>{
             res.redirect('/assignmentstracker')
         })
     }
@@ -85,7 +85,7 @@ router.post('/edit/:id', async(req,res,next)=>{
         let updatedAssignment = Assignment({
             "_id":id,
             "Name":req.body.Name,
-            "DaysDue":req.body.DaysDue,
+            "Due":req.body.Due,
             "Description":req.body.Descripiton,
             "Class":req.body.Class
         })
