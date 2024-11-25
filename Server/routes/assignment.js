@@ -4,15 +4,7 @@ let mongoose = require('mongoose');
 let Assignment = require('../model/assignment');
 const assignment = require('../model/assignment');
 let assignmentController = require('.../controllers/assignment.js')
-//const assignment = require('../Assignment03/server/views/model/assignment');
-function requireAuth(req,res,next)
-{
-    if(!req.isAuthenticated())
-    {
-        return res.redirect('/login')
-    }
-    next();
-}
+
 /*CRUD*/
 /*Read operation --> Get route for the assignment tracker */
 router.get('/', async(req, res, next) => {
@@ -20,7 +12,6 @@ router.get('/', async(req, res, next) => {
         const AssignmentTracker= await assignment.find()
         res.render('Assignment/tracker', {
             title:'Assignments',
-            displayName:req.user ? req.user.displayName:'',
             AssignmentTracker:AssignmentTracker
         })
     }
@@ -35,7 +26,6 @@ router.get('/add', async(req,res,next)=>{
     try{
         res.render('Assignment/add',{
             title:"Add Assignment",
-            displayName:req.user ? req.user.displayName:''
         });
     }
     catch(err){
@@ -68,12 +58,11 @@ router.post('/add', async(req,res,next)=>{
 router.get('/edit/:id', async(req,res,next)=>{
     try{
         const id=req.params.id;
-        const AssignmentToEdit=await Assignment.findById(id);
+        const assignmentToEdit=await Assignment.findById(id);
         res.render('Assignment/edit', 
             {
                 title:'Edit Assignment',
-                displayName:req.user ? req.user.displayName:'',
-                Assignment:AssignmentToEditToEdit
+                Assignment:assignmentToEdit
             })
     }
     catch(err){
@@ -89,7 +78,7 @@ router.post('/edit/:id', async(req,res,next)=>{
             "_id":id,
             "Name":req.body.Name,
             "Due":req.body.Due,
-            "Description":req.body.Descripiton,
+            "Description":req.body.Description,
             "Class":req.body.Class
         })
         Assignment.findByIdAndUpdate(id,updatedAssignment).then(()=>{
@@ -104,7 +93,7 @@ router.post('/edit/:id', async(req,res,next)=>{
     }
 });
 /*Delete operation --> Get route for Deletion */
-router.get('/edit/:id',(req,res,next)=>{
+router.get('/delete/:id',(req,res,next)=>{
     try{
         let id=req.params.id;
         Assignment.deleteOne({_id:id}).then(()=>{

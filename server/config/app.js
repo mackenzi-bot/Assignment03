@@ -6,8 +6,8 @@ let logger = require('morgan');
 
 let app = express();
 let indexRouter = require('../routes/index');
-let usersRouter = require('../../routes/users');
-let assignmentRouter = require('../../routes/assignment')
+let usersRouter = require('../routes/users');
+let assignmentRouter = require('../routes/assignment');
 
 
 // view engine setup
@@ -29,8 +29,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../../../public')));
-app.use(express.static(path.join(__dirname, '../../../node_modules')));
+app.use(express.static(path.join(__dirname, '../../public')));
+app.use(express.static(path.join(__dirname, '../../node_modules')));
 
 app.use('/', indexRouter); //localhost:4000
 app.use('/users', usersRouter); //localhost:4000/users
@@ -49,7 +49,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error',{title:'Error'});
 });
 
 module.exports = app;

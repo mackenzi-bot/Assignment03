@@ -4,9 +4,20 @@
  * Module dependencies.
  */
 
-var app = require('./server/config/app');
+var app = require('./app');
 var debug = require('debug')('assignment03:server');
 var http = require('http');
+const mongoose = require('mongoose');
+
+const mongoURI = 'mongodb+srv://mackenziburke:XufL0N0fJZCnG2Re@cluster0.sblfc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+
+mongoose.connect(mongoURI, { useNewURlParser: true, useUnifiedTopology: true})
+  .then(() => {
+    console.log('MongoDB connected successfully');
+  })
+  .catch(err => {
+    console.error('MongoDB connection error:', err);
+  });
 
 /**
  * Get port from environment and store in Express.
