@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Assignment</title>
+    <link rel="stylesheet" href='/Content/app.css' />
+</head>
+
+<body>
+    <div class="container mt-5">
+        <form action="/assignments/edit/<%= assignment._id %>?_method=PUT" method="POST" class="mt-4">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" id="name" name="name" value="<%= assignment.name %>" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="due" class="form-label">Due:</label>
+                <input type="text" id="due" name="due" value="<%= assignment.due %>" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Description:</label>
+                <input type="number" id="description" name="description" value="<%= assignment.description %>" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="class" class="form-label">Class:</label>
+                <input type="class" id="class" name="class" value="<%= assignment.class %>" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Update Assignment</button>
+            <a href="/assignments/edit/ <%= assignment._id %>/edit" class="btn btn-primary btn-sm">
+                <i class="bi bi=pencil-square"></i> Edit
+            </a>
+        </form>
+    </div>
+
+    <script src="http://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

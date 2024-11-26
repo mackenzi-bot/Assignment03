@@ -1,13 +1,14 @@
 // MVC --> Model, View, Controller (Routers)
-let mongoose = require('mongoose');
+const mongoose = require('mongoose');
 // create a model class
-let assignmentModel = mongoose.Schema({
-    Name:String,
-    Due:String,
-    Description:String,
-    Class:String
+const assignmentModel = new mongoose.Schema({
+    Name:{type: String, required:true},
+    Due:{type: String, required:true},
+    Description:{type: String, required:true},
+    Class:{type: String, required:true}
 },
 {
     collection:"Assignment_tracker"
 })
-module.exports = mongoose.model('Assignment',assignmentModel)
+const Assignment = mongoose.model('Assignment',assignmentModel)
+module.exports = Assignment;
