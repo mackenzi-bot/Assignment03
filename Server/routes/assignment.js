@@ -7,17 +7,9 @@ const Assignment = require('../model/assignment');
 
 /*CRUD*/
 /*Read operation --> Get route for the assignment tracker */
-router.get('/assignmentslist', async(req, res, next) => {
-    try{
-        const assignments= await Assignment.find()
-        res.render('assignments/assignmentslist', {
-            title:'Assignments List',
-            assignments
-        });
-    }
-    catch(err){
-        res.status(500).send('Server error');
-    }
+router.get('/assignmentslist', async(req, res) => {
+    res.render('assignments/assignmentslist', 
+        {title:'Assignments List'});
 });
 /*Create operation --> Get route for Add page */
 router.get('/add', async(req,res,next)=>{

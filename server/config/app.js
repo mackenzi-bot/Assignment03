@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 
 const indexRouter = require('../../index');
 const usersRouter = require('../routes/users');
-const assignmentRouter = require('../routes/assignment');
+const assignmentsRouter = require('../routes/assignment');
 
 const app = express();
 
@@ -29,9 +29,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../public')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
 
-app.use('/', indexRouter); //localhost:4000
+app.use('/', assignmentsRouter); //localhost:4000
 app.use('/users', usersRouter); //localhost:4000/users
-app.use('/assignmentslist',assignmentRouter);
+//app.use('/assignmentslist',assignmentRouter);
+
 
 app.use(function(req,res,next) {
   next(createError(404));

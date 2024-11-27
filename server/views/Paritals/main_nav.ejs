@@ -1,61 +1,84 @@
-<!--NavBar-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Assignment Tracker</title>
+  <link rel='stylesheet' href='/Content/app.css' />
+  <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/@fortawesome/fontawesome-free/css/all.min.css" />
+  <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/Script/app.js"></script>
+</head>
+
+<body>
+  <!--NavBar-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">Assignment Tracker</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <% if(title=="Home") { %>
+            <% if(title=="Home" ) { %>
               <a class="nav-link active" href="/home">
-            <% } else {%>
-              <a class="nav-link" href="/home">
-            <% } %>  
-            <i class="fa-solid fa-house-chimney-user"></i> Home</a>
+                <% } else {%>
+                  <a class="nav-link" href="/home">
+                    <% } %>
+                      <i class="fa-solid fa-house-chimney-user"></i> Home
+                  </a>
           </li>
           <li class="nav-item">
-            <% if(title=="About us") { %>
+            <% if(title=="About us" ) { %>
               <a class="nav-link active" href="/aboutus">
-            <% } else {%>
-              <a class="nav-link" href="/aboutus">  
-            <% } %>       
-              <i class="fa-solid fa-circle-info"></i>About Us</a>
+                <% } else {%>
+                  <a class="nav-link" href="/aboutus">
+                    <% } %>
+                      <i class="fa-solid fa-circle-info"></i>About Us
+                  </a>
           </li>
           <li class="nav-item">
-            <% if(title=="Products") { %>
+            <% if(title=="Products" ) { %>
               <a class="nav-link active" href="/products">
-            <% } else {%>
-              <a class="nav-link" href="/products">
-            <% } %>    
-              <i class="fa-brands fa-elementor"></i> Products</a>
+                <% } else {%>
+                  <a class="nav-link" href="/products">
+                    <% } %>
+                      <i class="fa-brands fa-elementor"></i> Products
+                  </a>
           </li>
           <li class="nav-item">
-            <% if(title=="Service") { %>
+            <% if(title=="Service" ) { %>
               <a class="nav-link active" href="/service">
-            <% } else {%> 
-              <a class="nav-link" href="/service">
-            <% } %>  
-                <i class="fa-solid fa-gears"></i> Service</a>
+                <% } else {%>
+                  <a class="nav-link" href="/service">
+                    <% } %>
+                      <i class="fa-solid fa-gears"></i> Service
+                  </a>
           </li>
           <li class="nav-item">
-            <% if(title=="Assignments") { %>
-              <a class="nav-link active" href="/assignmentstracker">
-            <% } else {%>
-              <a class="nav-link" href="/assignmentstracker">
-            <% } %>  
-            <i class="fa-solid fa-book"></i> Assignments</a>
+            <% if(title=="Assignments" ) { %>
+              <a class="nav-link active" href="/assignmentslist">
+                <% } else {%>
+                  <a class="nav-link" href="/assignmentslist">
+                    <% } %>
+                      <i class="fa-solid fa-book"></i> Assignments
+                  </a>
           </li>
           <li class="nav-item"></li>
-          <% if(title=="Contact Us") { %>
+          <% if(title=="Contact Us" ) { %>
             <a class="nav-link active" href="/contactus">
-          <% } else {%>  
-            <a class="nav-link" href="/contactus">
-          <% } %> 
-          <i class="fa-solid fa-address-card"></i>Contact Us</a>
-          </li>
+              <% } else {%>
+                <a class="nav-link" href="/contactus">
+                  <% } %>
+                    <i class="fa-solid fa-address-card"></i>Contact Us
+                </a>
+                </li>
         </ul>
       </div>
     </div>
   </nav>
+</body>
+
+</html>
